@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://duxs7ht4yi33t"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_ika60"]
+[ext_resource type="PackedScene" uid="uid://cmffx3jb2mmiq" path="res://scenes/player.tscn" id="2_m6p34"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ika60")
+
+[node name="Player" parent="." instance=ExtResource("2_m6p34")]
+position = Vector2(0, -37)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 37)
+zoom = Vector2(4, 4)
