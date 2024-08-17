@@ -1,19 +1,25 @@
 extends Node2D
 
-var currentLevel
-var levelScale = 1.0
+var currentLevelIndex : int
+var currentLevel : Node2D
+var levelScale : float = 1.0
 
-var Player : CharacterBody2D
+@onready var Player = $Player
 
 func load_level(index):
 	if currentLevel: currentLevel.queue_free()
 	
 	var scene = load("res://scenes/levels/level%s.tscn" % index)
 	currentLevel = scene.instantiate()
+	currentLevelIndex = index
+	levelScale -= float(currentLevelIndex) / 10
+	
 	add_child(currentLevel)
+	
+	Player.position = currentLevel.get_node("SpawnLocation").position
 
 func _ready() -> void:
-	load_level(1)
+	load_level(0)
 
 
 func _process(_delta: float) -> void:

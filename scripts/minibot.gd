@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 			SpeechBubble.visible = false
 			speed = -60.0
 			Vignette.material.set_shader_parameter("softness",1.5)
-			emit_signal("minibot_done")
+			minibot_done.emit()
 			return
 		if textPosition == 0:
 			Player.pause()

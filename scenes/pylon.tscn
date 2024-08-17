@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2orhnf8foadc"]
+
+[ext_resource type="Script" path="res://scripts/pylon.gd" id="1_cuw3j"]
+[ext_resource type="Texture2D" uid="uid://tmay4nagf27s" path="res://assets/pylon.png" id="2_8gj4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wry87"]
+size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihr1h"]
+atlas = ExtResource("2_8gj4d")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqb08"]
+atlas = ExtResource("2_8gj4d")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tr2j"]
+atlas = ExtResource("2_8gj4d")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2bn5"]
+atlas = ExtResource("2_8gj4d")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmjjd"]
+atlas = ExtResource("2_8gj4d")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgrxr"]
+atlas = ExtResource("2_8gj4d")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f28e"]
+atlas = ExtResource("2_8gj4d")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8rbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihr1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqb08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tr2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2bn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmjjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgrxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f28e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Pylon" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_cuw3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_wry87")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_c8rbx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
