@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmedm8uf3fyo8"]
+
+[ext_resource type="Script" path="res://scripts/minibot.gd" id="1_725gj"]
+[ext_resource type="Texture2D" uid="uid://c07mr1u8j64ht" path="res://assets/minibot.png" id="1_qgkg2"]
+[ext_resource type="Texture2D" uid="uid://cb71sc6ohay28" path="res://assets/speech_bubble.png" id="3_15unm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnkfj"]
+size = Vector2(57, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6fg4"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i4kh"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkq80"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5bvv"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4ght"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6fg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i4kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkq80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5bvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Minibot" type="Node2D"]
+script = ExtResource("1_725gj")
+text = "The company wants to build a road here, but this mountain is in the way!"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -7)
+shape = SubResource("RectangleShape2D_cnkfj")
+
+[node name="Minibot" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_e4ght")
+autoplay = "default"
+
+[node name="SpeechBubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(15, -35)
+texture = ExtResource("3_15unm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

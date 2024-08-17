@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var Jetpack = get_node("Jetpack/Sprite2D")
 
 var inputEnabled : bool = true
+var canJump : bool = true
 
 var dashTime : float = 0.0
 var floorCooldown : float = 0.0
@@ -48,13 +49,13 @@ func handle_movement(delta):
 	
 	
 	## Jump
-	if Input.is_action_just_pressed("Jump") and floorCooldown > 0.0:
+	if Input.is_action_just_pressed("Jump") and canJump and floorCooldown > 0.0:
 		velocity.y = jumpVelocity
 	
 	
 	## Jetpack
 	Jetpack.frame = 0
-	if Input.is_action_pressed("Jump") and has_node("Jetpack") and !floorCooldown > 0.0 and position.y > -256:
+	if Input.is_action_pressed("Jump") and canJump and has_node("Jetpack") and !floorCooldown > 0.0 and position.y > -256:
 		velocity.y = jumpVelocity
 		Jetpack.frame = 1
 	
