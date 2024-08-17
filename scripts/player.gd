@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var speed = 100.0
 @export var jumpVelocity = -300.0
 
+@onready var Wheel = get_node("Wheel/Sprite")
+
 var inputEnabled = true
 
 # Upgrades
@@ -39,5 +41,9 @@ func handle_movement(delta):
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+	
+	# Wheel
+	if is_on_floor():
+		Wheel.rotation += velocity.x / 1000
 
 	move_and_slide()
