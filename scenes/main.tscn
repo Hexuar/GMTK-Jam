@@ -1,7 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://duxs7ht4yi33t"]
+[gd_scene load_steps=12 format=3 uid="uid://duxs7ht4yi33t"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ika60"]
+[ext_resource type="Texture2D" uid="uid://dk4wym2ttoll8" path="res://assets/clouds.png" id="2_hopw3"]
 [ext_resource type="PackedScene" uid="uid://cmffx3jb2mmiq" path="res://scenes/player.tscn" id="2_m6p34"]
+[ext_resource type="Texture2D" uid="uid://cjwdysc0lh0lq" path="res://assets/transition.png" id="3_1gnwq"]
+[ext_resource type="Texture2D" uid="uid://ccvjcib4gmxjt" path="res://assets/mountains.png" id="3_qt7ov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvl8n"]
+atlas = ExtResource("3_1gnwq")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnoxe"]
+atlas = ExtResource("3_1gnwq")
+region = Rect2(512, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y52ji"]
+atlas = ExtResource("3_1gnwq")
+region = Rect2(1024, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi6vt"]
+atlas = ExtResource("3_1gnwq")
+region = Rect2(1536, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5syce"]
+atlas = ExtResource("3_1gnwq")
+region = Rect2(2048, 0, 512, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxjmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvl8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnoxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y52ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi6vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5syce")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ika60")
@@ -10,5 +56,37 @@ script = ExtResource("1_ika60")
 position = Vector2(0, -37)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, 37)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(0, -50)
+texture = ExtResource("2_hopw3")
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Mountains" type="Sprite2D" parent="ParallaxBackground/Mountains"]
+position = Vector2(0, -30)
+texture = ExtResource("3_qt7ov")
+centered = false
+
+[node name="Mountains1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Mountains" type="Sprite2D" parent="ParallaxBackground/Mountains1"]
+position = Vector2(0, -10)
+texture = ExtResource("3_qt7ov")
+centered = false
+
+[node name="Transition" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -37)
+sprite_frames = SubResource("SpriteFrames_xxjmh")

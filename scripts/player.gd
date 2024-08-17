@@ -2,11 +2,21 @@ extends CharacterBody2D
 
 
 @export var speed = 100.0
-@export var jumpVelocity = -200.0
+@export var jumpVelocity = -300.0
+
+var inputEnabled = true
+
+# Upgrades
+var hasJetpack : bool = true
+var hasRocketBoots : bool = true
+var hasGrapplingHook : bool = true
+var hasDrill : bool = true
+var hasClimbingGear : bool = true
 
 
 func _physics_process(delta: float) -> void:
-	handle_movement(delta)
+	if inputEnabled: 
+		handle_movement(delta)
 
 
 func handle_movement(delta):
@@ -16,6 +26,10 @@ func handle_movement(delta):
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
+		velocity.y = jumpVelocity
+	
+	# Jetpack
+	if Input.is_action_pressed("Jump") and hasJetpack and !is_on_floor() and position.y > -256:
 		velocity.y = jumpVelocity
 
 	# Get the input direction and handle the movement/deceleration.
