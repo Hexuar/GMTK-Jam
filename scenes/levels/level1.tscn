@@ -304,7 +304,7 @@ text = Array[String](["Ah! There you are.", "As you know the company wants to bu
 
 [node name="Minibot2" parent="." instance=ExtResource("6_pvauq")]
 position = Vector2(1449, -62)
-text = Array[String](["You won't fit through here!", "Perhaps if you take of your [b][color=\"purple\"]Jetpack[/color][/b] You'll be short enough to pass."])
+text = Array[String](["You won't fit through here!", "Perhaps if you take off your [b][color=\"purple\"]Jetpack[/color][/b] You'll be short enough to pass."])
 
 [connection signal="body_entered" from="LevelComplete" to="LevelComplete" method="_on_body_entered"]
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
