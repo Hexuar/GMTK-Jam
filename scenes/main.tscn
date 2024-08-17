@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://duxs7ht4yi33t"]
+[gd_scene load_steps=14 format=3 uid="uid://duxs7ht4yi33t"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ika60"]
 [ext_resource type="Texture2D" uid="uid://dk4wym2ttoll8" path="res://assets/clouds.png" id="2_hopw3"]
 [ext_resource type="PackedScene" uid="uid://cmffx3jb2mmiq" path="res://scenes/player.tscn" id="2_m6p34"]
 [ext_resource type="Texture2D" uid="uid://cjwdysc0lh0lq" path="res://assets/transition.png" id="3_1gnwq"]
 [ext_resource type="Texture2D" uid="uid://ccvjcib4gmxjt" path="res://assets/mountains.png" id="3_qt7ov"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="6_u4nsd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvl8n"]
 atlas = ExtResource("3_1gnwq")
@@ -49,6 +50,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wv3p"]
+shader = ExtResource("6_u4nsd")
+shader_parameter/color = null
+shader_parameter/multiplier = 0.2
+shader_parameter/softness = 1.0
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ika60")
 
@@ -90,3 +97,20 @@ centered = false
 [node name="Transition" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -37)
 sprite_frames = SubResource("SpriteFrames_xxjmh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0wv3p")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
