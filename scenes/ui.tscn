@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://cldm318cfa0ww"]
+
+[ext_resource type="Script" path="res://scripts/transition.gd" id="1_7ufv8"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="1_8vr0j"]
+[ext_resource type="Texture2D" uid="uid://c07mr1u8j64ht" path="res://assets/minibot.png" id="2_3l3eu"]
+[ext_resource type="Texture2D" uid="uid://yhv3rx4s1fm7" path="res://assets/speech_bubble_large.png" id="3_odd2l"]
+[ext_resource type="Texture2D" uid="uid://cjwdysc0lh0lq" path="res://assets/transition.png" id="4_mth1v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnir4"]
+shader = ExtResource("1_8vr0j")
+shader_parameter/color = null
+shader_parameter/multiplier = 0.2
+shader_parameter/softness = 1.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iexeg"]
+atlas = ExtResource("2_3l3eu")
+region = Rect2(0, 0, 16, 32)
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Vignette" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hnir4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Minibot" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -210.0
+offset_right = 160.0
+offset_bottom = 110.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_iexeg")
+stretch_mode = 4
+
+[node name="Speech Bubble" type="TextureRect" parent="Minibot"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -520.0
+offset_right = 770.0
+offset_bottom = 120.0
+texture = ExtResource("3_odd2l")
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="Minibot/Speech Bubble"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 312.0
+offset_right = 583.0
+offset_bottom = 338.0
+bbcode_enabled = true
+text = "[color=black][b]Minibot:[/b][/color]"
+
+[node name="Text" type="RichTextLabel" parent="Minibot/Speech Bubble"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 342.0
+offset_right = 567.0
+offset_bottom = 516.0
+bbcode_enabled = true
+
+[node name="Transition" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -247.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mth1v")
+script = ExtResource("1_7ufv8")

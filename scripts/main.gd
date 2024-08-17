@@ -16,7 +16,7 @@ func load_level(index):
 	
 	add_child(currentLevel)
 	
-	Player.position = currentLevel.get_node("SpawnLocation").position
+	Player.position = currentLevel.get_node("SpawnLocation").position * levelScale
 
 func _ready() -> void:
 	load_level(0)

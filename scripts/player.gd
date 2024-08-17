@@ -19,7 +19,6 @@ var canJump : bool = true
 var dashTime : float = 0.0
 var floorCooldown : float = 0.0
 var _speed
-var spawnLocation = Vector2(0,0)
 
 func pause():
 	Bot.frame = 1

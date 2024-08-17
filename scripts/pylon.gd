@@ -7,9 +7,10 @@ func _on_body_entered(body: Node2D) -> void:
 		body.pause()
 		$AnimatedSprite2D.play()
 		
-		await get_tree().create_timer(1).timeout
-		
 		var world = get_parent().get_parent()
+		world.get_node("UI/Transition").animate = true
+		
+		await get_tree().create_timer(1.2).timeout
 		world.load_level(goToLevel)
-		body.position = body.spawnLocation
+		
 		body.resume()

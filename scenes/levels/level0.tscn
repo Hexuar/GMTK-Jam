@@ -217,7 +217,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAA
 tile_set = SubResource("TileSet_ptb16")
 
 [node name="SpawnLocation" type="Node2D" parent="."]
-position = Vector2(-285, -16)
+position = Vector2(-187, -16)
 
 [node name="Kill" type="Area2D" parent="."]
 position = Vector2(404, 171)
