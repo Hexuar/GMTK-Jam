@@ -13,15 +13,20 @@ extends CharacterBody2D
 @onready var Wheel = get_node("Wheel/Sprite2D")
 @onready var Jetpack = get_node("Jetpack/Sprite2D")
 
-
-var hasJetpack : bool = false
-var hasWheel : bool = true
-
 var inputEnabled : bool = true
 
 var dashTime : float = 0.0
 var floorCooldown : float = 0.0
 var _speed
+
+
+func pause():
+	Bot.frame = 1
+	velocity = Vector2()
+	inputEnabled = false
+
+func resume():
+	inputEnabled = true
 
 
 func _physics_process(delta: float) -> void:
@@ -49,13 +54,12 @@ func handle_movement(delta):
 	
 	## Jetpack
 	Jetpack.frame = 0
-	if Input.is_action_pressed("Jump") and hasJetpack and !floorCooldown > 0.0 and position.y > -256:
+	if Input.is_action_pressed("Jump") and has_node("Jetpack") and !floorCooldown > 0.0 and position.y > -256:
 		velocity.y = jumpVelocity
 		Jetpack.frame = 1
 	
 	
 	## Boost
-	print(dashTime)
 	if dashTime > -dashCooldown:
 		dashTime -= delta
 	if dashTime < 0.0 and is_on_floor():
@@ -64,7 +68,7 @@ func handle_movement(delta):
 		_speed = move_toward(_speed, speed * dashModifier, 100)
 	else:
 		_speed = speed
-	if Input.is_action_just_pressed("Dash") and hasWheel and dashTime <= -dashCooldown:
+	if Input.is_action_just_pressed("Dash") and has_node("Wheel") and dashTime <= -dashCooldown:
 		dashTime = dashLength	
 	
 	
