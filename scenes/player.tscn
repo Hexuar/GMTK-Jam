@@ -43,3 +43,6 @@ shape = SubResource("RectangleShape2D_e63bp")
 position = Vector2(0, 1.5)
 texture = ExtResource("2_8ess0")
 hframes = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://duxs7ht4yi33t"]
+[gd_scene load_steps=10 format=3 uid="uid://duxs7ht4yi33t"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ika60"]
 [ext_resource type="Texture2D" uid="uid://dk4wym2ttoll8" path="res://assets/clouds.png" id="2_hopw3"]
 [ext_resource type="PackedScene" uid="uid://cmffx3jb2mmiq" path="res://scenes/player.tscn" id="2_m6p34"]
 [ext_resource type="Texture2D" uid="uid://ccvjcib4gmxjt" path="res://assets/mountains.png" id="3_qt7ov"]
-[ext_resource type="PackedScene" uid="uid://dmedm8uf3fyo8" path="res://scenes/minibot.tscn" id="6_28ex1"]
 [ext_resource type="Texture2D" uid="uid://yhv3rx4s1fm7" path="res://assets/speech_bubble_large.png" id="6_rb4jt"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="6_u4nsd"]
 [ext_resource type="Texture2D" uid="uid://c07mr1u8j64ht" path="res://assets/minibot.png" id="6_uore6"]
@@ -62,39 +61,41 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Minibot" type="TextureRect" parent="UI"]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -215.0
-offset_right = 168.0
-offset_bottom = 101.0
+offset_top = -210.0
+offset_right = 160.0
+offset_bottom = 110.0
 grow_vertical = 0
 texture = SubResource("AtlasTexture_jdntu")
 stretch_mode = 4
 
-[node name="Speech Bubble" type="TextureRect" parent="UI"]
-offset_left = 135.0
-offset_top = 5.0
-offset_right = 759.0
-offset_bottom = 532.0
+[node name="Speech Bubble" type="TextureRect" parent="UI/Minibot"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -520.0
+offset_right = 770.0
+offset_bottom = 120.0
 texture = ExtResource("6_rb4jt")
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Speech Bubble"]
+[node name="Name" type="RichTextLabel" parent="UI/Minibot/Speech Bubble"]
 layout_mode = 0
-offset_left = 89.0
-offset_top = 187.0
-offset_right = 487.0
-offset_bottom = 405.0
+offset_left = 111.0
+offset_top = 312.0
+offset_right = 583.0
+offset_bottom = 338.0
 bbcode_enabled = true
-text = "[color=black]Hello World!
-EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE[/color]"
+text = "[color=black][b]Minibot:[/b][/color]"
+
+[node name="Text" type="RichTextLabel" parent="UI/Minibot/Speech Bubble"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 342.0
+offset_right = 567.0
+offset_bottom = 516.0
+bbcode_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_m6p34")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3, 3)
-
-[node name="Minibot" parent="." instance=ExtResource("6_28ex1")]
-position = Vector2(113, -32)

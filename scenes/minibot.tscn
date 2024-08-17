@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmedm8uf3fyo8"]
+[gd_scene load_steps=14 format=3 uid="uid://dmedm8uf3fyo8"]
 
 [ext_resource type="Script" path="res://scripts/minibot.gd" id="1_725gj"]
 [ext_resource type="Texture2D" uid="uid://c07mr1u8j64ht" path="res://assets/minibot.png" id="1_qgkg2"]
@@ -7,36 +7,64 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnkfj"]
 size = Vector2(57, 74)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k6fg4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w7ko"]
 atlas = ExtResource("1_qgkg2")
 region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8i4kh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmrgj"]
 atlas = ExtResource("1_qgkg2")
 region = Rect2(16, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkq80"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eie06"]
 atlas = ExtResource("1_qgkg2")
 region = Rect2(32, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5bvv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouykg"]
 atlas = ExtResource("1_qgkg2")
 region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_111mf"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy6os"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3bgd"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jkky"]
+atlas = ExtResource("1_qgkg2")
+region = Rect2(112, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e4ght"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k6fg4")
+"texture": SubResource("AtlasTexture_3w7ko")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8i4kh")
+"texture": SubResource("AtlasTexture_nmrgj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mkq80")
+"texture": SubResource("AtlasTexture_eie06")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v5bvv")
+"texture": SubResource("AtlasTexture_ouykg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_111mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy6os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3bgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jkky")
 }],
 "loop": true,
 "name": &"default",
@@ -45,7 +73,6 @@ animations = [{
 
 [node name="Minibot" type="Node2D"]
 script = ExtResource("1_725gj")
-text = "The company wants to build a road here, but this mountain is in the way!"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2

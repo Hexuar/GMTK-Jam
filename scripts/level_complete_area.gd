@@ -9,5 +9,5 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		var world = get_parent().get_parent()
 		world.load_level(2)
-		body.position = world.currentLevel.get_node("SpawnLocation").position
+		body.position = body.spawnLocation
 		body.resume()

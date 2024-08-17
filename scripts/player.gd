@@ -19,7 +19,7 @@ var canJump : bool = true
 var dashTime : float = 0.0
 var floorCooldown : float = 0.0
 var _speed
-
+var spawnLocation = Vector2(0,0)
 
 func pause():
 	Bot.frame = 1
@@ -28,7 +28,6 @@ func pause():
 
 func resume():
 	inputEnabled = true
-
 
 func _physics_process(delta: float) -> void:
 	if inputEnabled: 
