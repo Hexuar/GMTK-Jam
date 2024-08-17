@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckaiv3bosd8nq"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_bclc5"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_bclc5")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.5
+offset_top = -221.5
+offset_right = 386.5
+offset_bottom = 221.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -24.5
+offset_right = 221.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]

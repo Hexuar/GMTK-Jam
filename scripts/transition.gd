@@ -6,7 +6,7 @@ var animate : bool = true
 func _process(delta: float) -> void:
 	if animate:
 		position.y += transitionSpeed * delta
-		
 		if position.y > size.y:
 			animate = false
-			position.y = -size.y
+	else:
+		position.y = -size.y
