@@ -8,11 +8,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f072p"]
 size = Vector2(16, 18)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e63bp"]
-size = Vector2(20, 33)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2k3cm"]
 radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e63bp"]
+size = Vector2(18, 33)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -27,6 +27,13 @@ texture = ExtResource("3_f01g8")
 hframes = 2
 region_rect = Rect2(0, 0, 32, 32)
 
+[node name="Wheel" type="CollisionShape2D" parent="."]
+position = Vector2(1, -13)
+shape = SubResource("CircleShape2D_2k3cm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel"]
+texture = ExtResource("4_toiff")
+
 [node name="Bot" type="CollisionShape2D" parent="."]
 position = Vector2(1, -33.5)
 shape = SubResource("RectangleShape2D_e63bp")
@@ -34,10 +41,4 @@ shape = SubResource("RectangleShape2D_e63bp")
 [node name="Sprite2D" type="Sprite2D" parent="Bot"]
 position = Vector2(0, 1.5)
 texture = ExtResource("2_8ess0")
-
-[node name="Wheel" type="CollisionShape2D" parent="."]
-position = Vector2(1, -11)
-shape = SubResource("CircleShape2D_2k3cm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Wheel"]
-texture = ExtResource("4_toiff")
+hframes = 3
