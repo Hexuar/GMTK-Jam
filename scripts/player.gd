@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var speed = 100.0
 @export var jumpVelocity = -300.0
 
-@onready var Wheel = get_node("Wheel/Sprite")
+@onready var Wheel = get_node("Wheel/Sprite2D")
+@onready var Jetpack = get_node("Jetpack/Sprite2D")
 
 var inputEnabled = true
 
@@ -31,8 +32,10 @@ func handle_movement(delta):
 		velocity.y = jumpVelocity
 	
 	# Jetpack
+	Jetpack.frame = 0
 	if Input.is_action_pressed("Jump") and hasJetpack and !is_on_floor() and position.y > -256:
 		velocity.y = jumpVelocity
+		Jetpack.frame = 1
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -43,7 +46,6 @@ func handle_movement(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	# Wheel
-	if is_on_floor():
-		Wheel.rotation += velocity.x / 1000
+	Wheel.rotation += velocity.x / 1000
 
 	move_and_slide()

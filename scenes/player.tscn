@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://buk2tln53eeum" path="res://assets/bot/wheel.png" id="4_toiff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f072p"]
-size = Vector2(22, 18)
+size = Vector2(16, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e63bp"]
 size = Vector2(20, 33)
@@ -19,17 +19,19 @@ collision_layer = 2
 script = ExtResource("1_w0dnt")
 
 [node name="Jetpack" type="CollisionShape2D" parent="."]
-position = Vector2(1, -51)
+position = Vector2(1, -45)
 shape = SubResource("RectangleShape2D_f072p")
 
-[node name="Sprite" type="Sprite2D" parent="Jetpack"]
+[node name="Sprite2D" type="Sprite2D" parent="Jetpack"]
 texture = ExtResource("3_f01g8")
+hframes = 2
+region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Bot" type="CollisionShape2D" parent="."]
 position = Vector2(1, -33.5)
 shape = SubResource("RectangleShape2D_e63bp")
 
-[node name="Sprite" type="Sprite2D" parent="Bot"]
+[node name="Sprite2D" type="Sprite2D" parent="Bot"]
 position = Vector2(0, 1.5)
 texture = ExtResource("2_8ess0")
 
@@ -37,5 +39,5 @@ texture = ExtResource("2_8ess0")
 position = Vector2(1, -11)
 shape = SubResource("CircleShape2D_2k3cm")
 
-[node name="Sprite" type="Sprite2D" parent="Wheel"]
+[node name="Sprite2D" type="Sprite2D" parent="Wheel"]
 texture = ExtResource("4_toiff")
