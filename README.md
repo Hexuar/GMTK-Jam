@@ -1,2 +1,2 @@
 # Mountain Scalers
-My GMTK Game Jam submission
+My GMTK Game Jam 2024 submission
