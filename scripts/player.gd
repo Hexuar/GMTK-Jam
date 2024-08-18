@@ -10,7 +10,6 @@ extends CharacterBody2D
 @export var jetpackVelocity = -100.0
 @export var dashModifier = 5
 @export var dashLength = 0.15 # Seconds
-@export var dashCooldown = 0.5 # Seconds
 @export var friction = 0.07
 @export var coyoteTime = 0.1 # Seconds
 
@@ -76,15 +75,15 @@ func handle_movement(delta):
 	
 	
 	## Boost
-	if dashTime > -dashCooldown:
+	if dashTime > 0.0:
 		dashTime -= delta
-	if dashTime < 0.0 and is_on_floor():
-		dashTime = -dashCooldown
+	if dashTime <= 0.0 and is_on_floor():
+		dashTime = -1.0
 	if dashTime > 0.0 :
 		_speed = move_toward(_speed, speed * dashModifier, 100)
 	else:
 		_speed = speed
-	if Input.is_action_just_pressed("Dash") and has_node("Wheel") and dashTime <= -dashCooldown  and is_on_floor():
+	if Input.is_action_just_pressed("Dash") and has_node("Wheel") and dashTime <= -1.0:
 		dashTime = dashLength
 	
 	

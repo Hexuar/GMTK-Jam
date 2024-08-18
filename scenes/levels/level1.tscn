@@ -318,6 +318,15 @@ script = ExtResource("4_jj7h8")
 position = Vector2(-1131.78, 159.556)
 shape = SubResource("RectangleShape2D_2mg8x")
 
+[node name="Kill2" type="Area2D" parent="."]
+position = Vector2(2657, -1103)
+collision_mask = 2
+script = ExtResource("4_jj7h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill2"]
+position = Vector2(-1131.78, 159.556)
+shape = SubResource("RectangleShape2D_2mg8x")
+
 [node name="Boulders" type="Node2D" parent="."]
 
 [node name="Boulder" parent="Boulders" instance=ExtResource("5_tvwwl")]
@@ -408,3 +417,4 @@ position = Vector2(-404, -573)
 text = Array[String](["You're not supposed to be here!", "The company is dissapointed in you."])
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
+[connection signal="body_entered" from="Kill2" to="Kill2" method="_on_body_entered"]
