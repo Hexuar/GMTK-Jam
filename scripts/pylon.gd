@@ -10,7 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var world = get_parent().get_parent()
 		world.get_node("UI/Transition").animate()
 		
-		await get_tree().create_timer(1.2).timeout
+		await world.get_node("UI/Transition").animation_step
 		world.load_level(goToLevel)
 		
 		body.resume()

@@ -1,21 +1,20 @@
 extends Node2D
 
+@export var startLevel : int = 0
 @export var Menu : PackedScene
 var menu
 
 var currentLevelIndex : int
 var currentLevel : Node2D
-var levelScale : float = 1.0
 
-@onready var Player = $Player
-@onready var Music = $Music
 @onready var Transition = $UI/Transition
 
 func _ready() -> void:
+	Transition.Music = $Music
 	open_menu()
-	load_level()
+	load_level(startLevel)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		Transition.animate()
 		await Transition.animation_step
@@ -25,24 +24,17 @@ func open_menu():
 	get_tree().paused = true
 	menu = Menu.instantiate()
 	menu.get_node("Buttons/StartButton").pressed.connect(close_menu)
-	Music.volume_db = -10
 	add_child(menu)
 
 func close_menu():
 	get_tree().paused = false
 	menu.queue_free()
-	Music.volume_db = 0.0
 
-func load_level(index = 0):
+func load_level(index):
 	if currentLevel: currentLevel.queue_free()
 	
 	var scene = load("res://scenes/levels/level%s.tscn" % index)
 	currentLevel = scene.instantiate()
 	currentLevelIndex = index
 	
-	levelScale -= float(currentLevelIndex) / 10
-	currentLevel.scale = Vector2(levelScale, levelScale)
-	
 	add_child(currentLevel)
-	
-	Player.position = currentLevel.get_node("SpawnLocation").position * levelScale
