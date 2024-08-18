@@ -4,7 +4,7 @@ var spawnLocation : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawnLocation = position
+	spawnLocation = position * owner.scale
 
 func reset():
 	linear_velocity = Vector2()
