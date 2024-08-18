@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmedm8uf3fyo8"]
+[gd_scene load_steps=15 format=3 uid="uid://dmedm8uf3fyo8"]
 
 [ext_resource type="Script" path="res://scripts/minibot.gd" id="1_725gj"]
 [ext_resource type="Texture2D" uid="uid://c07mr1u8j64ht" path="res://assets/minibot.png" id="1_qgkg2"]
 [ext_resource type="Texture2D" uid="uid://cb71sc6ohay28" path="res://assets/speech_bubble.png" id="3_15unm"]
+[ext_resource type="AudioStream" uid="uid://gb8hoi5ikmr6" path="res://assets/minibot.wav" id="4_3bsm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnkfj"]
 size = Vector2(57, 74)
@@ -90,6 +91,9 @@ autoplay = "default"
 visible = false
 position = Vector2(15, -35)
 texture = ExtResource("3_15unm")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3bsm4")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

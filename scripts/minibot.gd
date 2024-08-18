@@ -5,6 +5,7 @@ extends Node2D
 @onready var SpeechBubble = $SpeechBubble
 @onready var UIBot = get_parent().get_parent().get_node("UI/Minibot")
 @onready var Vignette = get_parent().get_parent().get_node("UI/Vignette")
+@onready var Sound = $Sound
 
 var Player : CharacterBody2D
 var textPosition = 0
@@ -16,6 +17,7 @@ func _process(delta: float) -> void:
 	position.y += speed * delta
 	if Input.is_action_just_pressed("ui_accept") and SpeechBubble.visible:
 		if textPosition >= text.size():
+			Sound.stop()
 			Player.resume()
 			UIBot.visible = false
 			SpeechBubble.visible = false
@@ -24,6 +26,7 @@ func _process(delta: float) -> void:
 			minibot_done.emit()
 			return
 		if textPosition == 0:
+			Sound.play()
 			Player.pause()
 			UIBot.visible = true
 			Vignette.material.set_shader_parameter("softness",1.0)

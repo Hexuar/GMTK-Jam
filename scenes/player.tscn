@@ -47,3 +47,6 @@ hframes = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://duxs7ht4yi33t"]
+[gd_scene load_steps=8 format=3 uid="uid://duxs7ht4yi33t"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ika60"]
 [ext_resource type="Texture2D" uid="uid://dk4wym2ttoll8" path="res://assets/clouds.png" id="2_hopw3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckaiv3bosd8nq" path="res://scenes/menu.tscn" id="2_wwjun"]
 [ext_resource type="Texture2D" uid="uid://ccvjcib4gmxjt" path="res://assets/mountains.png" id="3_qt7ov"]
 [ext_resource type="PackedScene" uid="uid://cldm318cfa0ww" path="res://scenes/ui.tscn" id="4_iufoy"]
+[ext_resource type="AudioStream" uid="uid://b0im7ivwor7e" path="res://assets/music.wav" id="7_qxiw0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ika60")
@@ -43,3 +44,8 @@ centered = false
 [node name="UI" parent="." instance=ExtResource("4_iufoy")]
 
 [node name="Player" parent="." instance=ExtResource("2_m6p34")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_qxiw0")
+autoplay = true

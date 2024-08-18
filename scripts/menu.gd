@@ -1,8 +1,11 @@
 extends CanvasLayer
 
-func _ready() -> void:
-	process_mode = PROCESS_MODE_ALWAYS
+@onready var StartButton = $Buttons/StartButton
 
-func _on_start_button_pressed() -> void:
-	queue_free()
-	get_tree().paused = false
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		StartButton.pressed.emit()
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()

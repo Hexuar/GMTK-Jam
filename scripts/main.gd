@@ -8,15 +8,30 @@ var currentLevel : Node2D
 var levelScale : float = 1.0
 
 @onready var Player = $Player
+@onready var Music = $Music
+@onready var Transition = $UI/Transition
 
 func _ready() -> void:
 	open_menu()
 	load_level()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Menu"):
+		Transition.animate()
+		await Transition.animation_step
+		open_menu()
+
 func open_menu():
 	get_tree().paused = true
 	menu = Menu.instantiate()
+	menu.get_node("Buttons/StartButton").pressed.connect(close_menu)
+	Music.volume_db = -10
 	add_child(menu)
+
+func close_menu():
+	get_tree().paused = false
+	menu.queue_free()
+	Music.volume_db = 0.0
 
 func load_level(index = 0):
 	if currentLevel: currentLevel.queue_free()
