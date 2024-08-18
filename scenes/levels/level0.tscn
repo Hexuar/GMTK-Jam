@@ -317,7 +317,7 @@ position = Vector2(1576, -48)
 goToLevel = 1
 
 [node name="Player" parent="." instance=ExtResource("6_v074a")]
-position = Vector2(-2779, -21)
+position = Vector2(-2779, -16)
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
 [connection signal="minibot_done" from="Minibot2" to="." method="_on_minibot_2_minibot_done"]

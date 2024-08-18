@@ -40,7 +40,10 @@ func _physics_process(delta: float) -> void:
 
 
 func die():
+	pause()
 	position = spawnLocation
+	await get_tree().create_timer(0.1).timeout
+	resume()
 
 
 func pause():

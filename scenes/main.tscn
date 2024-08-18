@@ -10,6 +10,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ika60")
+startLevel = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

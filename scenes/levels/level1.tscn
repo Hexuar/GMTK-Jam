@@ -372,7 +372,7 @@ position = Vector2(1660, -1146.67)
 position = Vector2(1717.78, -1204.44)
 
 [node name="Player" parent="." instance=ExtResource("2_wipgy")]
-position = Vector2(-241.111, 3.05176e-05)
+position = Vector2(-244, 0)
 hasJetpack = false
 
 [node name="Pylon" parent="." instance=ExtResource("6_em2k5")]
