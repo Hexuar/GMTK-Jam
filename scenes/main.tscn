@@ -9,6 +9,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ika60")
+startLevel = 1
 Menu = ExtResource("2_wwjun")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
