@@ -1,2 +1,2 @@
-# GMTK-Jam
+# Mountain Scalers
 My GMTK Game Jam submission
