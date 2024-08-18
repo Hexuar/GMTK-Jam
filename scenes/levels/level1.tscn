@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://c8aceahprmr2a"]
 
-[ext_resource type="Script" path="res://scripts/level1.gd" id="1_xbl2s"]
+[ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_xbl2s"]
 [ext_resource type="Texture2D" uid="uid://be331ukf30w1s" path="res://assets/tileset.png" id="2_eph1h"]
 [ext_resource type="PackedScene" uid="uid://cmffx3jb2mmiq" path="res://scenes/player.tscn" id="2_wipgy"]
 [ext_resource type="Script" path="res://scripts/kill_area.gd" id="4_jj7h8"]
@@ -361,7 +361,7 @@ position = Vector2(1660, -1146.67)
 position = Vector2(1717.78, -1204.44)
 
 [node name="Player" parent="." instance=ExtResource("2_wipgy")]
-position = Vector2(886.667, -153.333)
+position = Vector2(-224.444, -14.4444)
 hasJetpack = false
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]

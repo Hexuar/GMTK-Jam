@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cldm318cfa0ww"]
+[gd_scene load_steps=7 format=3 uid="uid://cldm318cfa0ww"]
 
-[ext_resource type="Script" path="res://scripts/transition.gd" id="1_7ufv8"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="1_8vr0j"]
 [ext_resource type="Texture2D" uid="uid://c07mr1u8j64ht" path="res://assets/minibot.png" id="2_3l3eu"]
 [ext_resource type="Texture2D" uid="uid://yhv3rx4s1fm7" path="res://assets/speech_bubble_large.png" id="3_odd2l"]
-[ext_resource type="Texture2D" uid="uid://cjwdysc0lh0lq" path="res://assets/transition.png" id="4_mth1v"]
+[ext_resource type="PackedScene" uid="uid://d2uucmnqg8trs" path="res://scenes/menu.tscn" id="4_vmw3f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnir4"]
 shader = ExtResource("1_8vr0j")
@@ -64,13 +63,4 @@ offset_right = 567.0
 offset_bottom = 516.0
 bbcode_enabled = true
 
-[node name="Transition" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -247.0
-offset_bottom = 281.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mth1v")
-script = ExtResource("1_7ufv8")
+[node name="Menu" parent="." instance=ExtResource("4_vmw3f")]

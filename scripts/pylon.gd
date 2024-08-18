@@ -7,10 +7,11 @@ func _on_body_entered(body: Node2D) -> void:
 		body.pause()
 		$AnimatedSprite2D.play()
 		
-		var world = get_parent().get_parent()
-		world.get_node("UI/Transition").animate()
+		var world = get_node("/root/Main")
 		
-		await world.get_node("UI/Transition").animation_step
+		world.Menu.transition()
+		await world.Menu.animation_step
 		world.load_level(goToLevel)
 		
 		body.resume()
+		

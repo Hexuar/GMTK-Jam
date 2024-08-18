@@ -14,9 +14,9 @@ extends CharacterBody2D
 @export var friction = 0.07
 @export var coyoteTime = 0.1 # Seconds
 
-@onready var Bot = get_node("Bot/Sprite2D")
-@onready var Wheel = get_node("Wheel/Sprite2D")
-@onready var Jetpack = get_node("Jetpack/Sprite2D")
+@onready var Bot = $Bot/Sprite2D
+@onready var Wheel = $Wheel/Sprite2D
+@onready var Jetpack = $Jetpack/Sprite2D
 
 var inputEnabled : bool = true
 var canJump : bool = true
@@ -25,17 +25,6 @@ var dashTime : float = 0.0
 var floorCooldown : float = 0.0
 var _speed
 var spawnLocation: Vector2
-
-func die():
-	position = spawnLocation
-
-func pause():
-	Bot.frame = 1
-	velocity = Vector2()
-	inputEnabled = false
-
-func resume():
-	inputEnabled = true
 
 
 func _ready() -> void:
@@ -48,6 +37,19 @@ func _physics_process(delta: float) -> void:
 	if inputEnabled: 
 		handle_movement(delta)
 	damage()
+
+
+func die():
+	position = spawnLocation
+
+
+func pause():
+	Bot.frame = 1
+	velocity = Vector2()
+	inputEnabled = false
+
+func resume():
+	inputEnabled = true
 
 
 func damage() -> void:
