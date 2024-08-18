@@ -41,6 +41,15 @@ position = Vector2(0, -10)
 texture = ExtResource("3_qt7ov")
 centered = false
 
+[node name="Mountains2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Mountains" type="Sprite2D" parent="ParallaxBackground/Mountains2"]
+position = Vector2(0, 25)
+texture = ExtResource("3_qt7ov")
+centered = false
+
 [node name="UI" parent="." instance=ExtResource("4_iufoy")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
