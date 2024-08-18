@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var Menu = $UI/Menu
 @onready var GlitchSound = $Glitch
+@onready var Snow = $Snow
 
 var currentLevel : Node2D
 var currentLevelIndex : int
@@ -52,12 +53,14 @@ func scale_level(factor):
 	currentLevel.scale = Vector2(factor, factor)
 	currentLevel.get_node("Player").scale = Vector2.ONE/currentLevel.scale
 
+
 func glitch():
-	var factor = randf_range(0.5, currentLevelIndex)
+	var factor = randf_range(-0.2 + currentLevelIndex * 0.1, 0.2 + currentLevelIndex * 0.1)
 	var time = glitchLength + currentLevelIndex
 	GlitchSound.play()
 	
-	levelScaleTarget = factor
+	levelScaleTarget = 1 + factor
+	print(levelScaleTarget, factor)
 	await get_tree().create_timer(time).timeout
 	levelScaleTarget = 1
 	

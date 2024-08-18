@@ -280,7 +280,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_mn613")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mg8x"]
-size = Vector2(3479.18, 273)
+size = Vector2(7358, 273)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_xbl2s")
@@ -290,7 +290,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAHAAAAAAABAAAAAQAHAAAAAAACAAAAAQAHAAA
 tile_set = SubResource("TileSet_ptb16")
 
 [node name="DangerTiles" type="TileMapLayer" parent="." groups=["danger"]]
-tile_map_data = PackedByteArray("AAAOAAQAAAAHAAcAAAAPAAQAAAAHAAcAAAAQAAQAAAAHAAcAAAARAAQAAAAHAAcAAAASAAQAAAAHAAcAAAATAAQAAAAHAAcAAAAUAAQAAAAHAAcAAAAVAAQAAAAHAAcAAAAWAAQAAAAHAAcAAAAXAAQAAAAHAAcAAAAYAAQAAAAHAAcAAAAZAAQAAAAHAAcAAAAaAAQAAAAHAAcAAAAbAAQAAAAHAAcAAAAcAAQAAAAHAAcAAAAdAAQAAAAHAAcAAAAeAAQAAAAHAAcAAAD8////AAAHAAcAAAAIAP//AAAHAAcAAAAJAP//AAAHAAcAAAAKAP//AAAHAAcAAAAfAAQAAAAHAAcAAAAgAAQAAAAHAAcAAAAhAAQAAAAHAAcAAAAiAAQAAAAHAAcAAAAjAAQAAAAHAAcAAAD7////AAAHAAcAAAAxAPr/AAAHAAcAAAAwAPr/AAAHAAcAAAAtAPv/AAAHAAcAAAAHAP//AAAHAAcAAAAGAP//AAAHAAcAAAAFAP//AAAHAAcAAAAEAP//AAAHAAcAAAD6////AAAHAAcAAAD5////AAAHAAcAAAD4////AAAHAAcAAAA=")
+tile_map_data = PackedByteArray("AAAOAAQAAAAHAAcAAAAPAAQAAAAHAAcAAAAQAAQAAAAHAAcAAAARAAQAAAAHAAcAAAASAAQAAAAHAAcAAAATAAQAAAAHAAcAAAAUAAQAAAAHAAcAAAAVAAQAAAAHAAcAAAAWAAQAAAAHAAcAAAAXAAQAAAAHAAcAAAAYAAQAAAAHAAcAAAAZAAQAAAAHAAcAAAAaAAQAAAAHAAcAAAAbAAQAAAAHAAcAAAAcAAQAAAAHAAcAAAAdAAQAAAAHAAcAAAAeAAQAAAAHAAcAAAD8////AAAHAAcAAAAIAP//AAAHAAcAAAAJAP//AAAHAAcAAAAfAAQAAAAHAAcAAAAgAAQAAAAHAAcAAAAhAAQAAAAHAAcAAAAiAAQAAAAHAAcAAAAjAAQAAAAHAAcAAAD7////AAAHAAcAAAAxAPr/AAAHAAcAAAAwAPr/AAAHAAcAAAAtAPv/AAAHAAcAAAAHAP//AAAHAAcAAAAGAP//AAAHAAcAAAAFAP//AAAHAAcAAAAEAP//AAAHAAcAAAD6////AAAHAAcAAAD5////AAAHAAcAAAD4////AAAHAAcAAAA=")
 tile_set = SubResource("TileSet_syb07")
 
 [node name="Kill" type="Area2D" parent="."]
@@ -299,7 +299,7 @@ collision_mask = 2
 script = ExtResource("4_jj7h8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill"]
-position = Vector2(-159.854, 159.556)
+position = Vector2(-1131.78, 159.556)
 shape = SubResource("RectangleShape2D_2mg8x")
 
 [node name="Boulders" type="Node2D" parent="."]
@@ -382,5 +382,13 @@ goToLevel = 2
 [node name="Minibot" parent="." instance=ExtResource("7_s3fmd")]
 position = Vector2(3136.67, -302.222)
 text = Array[String](["You're a bit slow for the company's liking. Got some hardware issues? ", "Though I guess you can be excused since the [b][color=\"blue\"]Pylons[/color][/b] seem to be acting up today."])
+
+[node name="Minibot2" parent="." instance=ExtResource("7_s3fmd")]
+position = Vector2(988, -620)
+text = Array[String](["You're not supposed to be here!", "The company is dissapointed in you."])
+
+[node name="Minibot3" parent="." instance=ExtResource("7_s3fmd")]
+position = Vector2(-404, -573)
+text = Array[String](["You're not supposed to be here!", "The company is dissapointed in you."])
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
