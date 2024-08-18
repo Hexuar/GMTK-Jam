@@ -6,7 +6,7 @@ var time
 
 
 func _ready() -> void:
-	spawnLocation = position * owner.scale
+	spawnLocation = position
 	reset()
 
 
@@ -17,7 +17,7 @@ func reset():
 	PhysicsServer2D.body_set_state(
 		get_rid(),
 		PhysicsServer2D.BODY_STATE_TRANSFORM,
-		Transform2D.IDENTITY.translated(spawnLocation)
+		Transform2D.IDENTITY.translated(spawnLocation * owner.scale)
 	)
 
 

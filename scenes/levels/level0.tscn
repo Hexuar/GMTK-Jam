@@ -306,7 +306,7 @@ shape = SubResource("RectangleShape2D_j8iyn")
 
 [node name="Minibot" parent="." instance=ExtResource("4_fowjh")]
 position = Vector2(-2352, -14)
-text = Array[String](["Ah! There you are.", "As you know the company wants to build a road here, but this [b][color=\"red\"]Mountain[/color][/b] is in the way!", "Reasonable beings like us would probably have decided to just go around the mountain but alas. They want us to [b][color=\"blue\"]Scale[/color][/b] the mountain instead!", "Well, you better get to it. The first pylon is up ahead. Activate it to aid in [b][color=\"blue\"]Scaling[/color][/b] the mountain.", "Remember, you can use your [b][color=\"orange\"]Jetpack[/color][/b] by pressing [b]Space[/b] and boost your [b][color=\"orange\"]Wheel[/color][/b] by pressing [b]Shift[/b]."])
+text = Array[String](["Ah! There you are.", "As you know the company wants to build a road here, but this [b][color=\"red\"]Mountain[/color][/b] is in the way!", "Reasonable beings like us would probably have decided to just go around the mountain but alas. They want us to [b][color=\"blue\"]Scale[/color][/b] the mountain instead!", "Well, you better get to it. The first [b][color=\"blue\"]Pylon[/color][/b] is up ahead. Activate it to aid in [b][color=\"blue\"]Scaling[/color][/b] the mountain.", "Remember, you can use your [b][color=\"orange\"]Jetpack[/color][/b] by pressing [b]Space[/b] and boost your [b][color=\"orange\"]Wheel[/color][/b] by pressing [b]Shift[/b]."])
 
 [node name="Minibot2" parent="." instance=ExtResource("4_fowjh")]
 position = Vector2(1449, -62)

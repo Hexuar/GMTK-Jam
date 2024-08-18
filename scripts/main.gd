@@ -1,11 +1,16 @@
 extends Node2D
 
 @export var startLevel : int = 0
+@export var glitchFrequency : int = 30
+@export var glitchLength : int = 10
 
 @onready var Menu = $UI/Menu
+@onready var GlitchSound = $Glitch
 
-var currentLevelIndex : int
 var currentLevel : Node2D
+var currentLevelIndex : int
+var levelScaleTarget: float = 1.0
+var levelScale: float = 1.0
 
 func _ready() -> void:
 	Menu.Music = $Music
@@ -13,9 +18,14 @@ func _ready() -> void:
 	get_tree().paused = true
 	load_level(startLevel)
 
-func _process(_delta: float) -> void:
+
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		open_menu()
+	if !randi_range(0, int(glitchFrequency/delta) - currentLevelIndex) and currentLevelIndex != 0:
+		glitch()
+	levelScale = lerp(levelScale, levelScaleTarget, 0.1)
+	scale_level(levelScale)
 
 func open_menu():
 	Menu.open()
@@ -25,6 +35,7 @@ func open_menu():
 func close_menu():
 	get_tree().paused = false
 
+
 func load_level(index):
 	if currentLevel: currentLevel.queue_free()
 	
@@ -32,6 +43,22 @@ func load_level(index):
 	currentLevel = scene.instantiate()
 	currentLevelIndex = index
 	
-	currentLevel.get_node("Player").scale = Vector2.ONE/currentLevel.scale
+	scale_level(1.0 - index * 0.1)
 	
 	add_child(currentLevel)
+
+
+func scale_level(factor):
+	currentLevel.scale = Vector2(factor, factor)
+	currentLevel.get_node("Player").scale = Vector2.ONE/currentLevel.scale
+
+func glitch():
+	var factor = randf_range(0.5, currentLevelIndex)
+	var time = glitchLength + currentLevelIndex
+	GlitchSound.play()
+	
+	levelScaleTarget = factor
+	await get_tree().create_timer(time).timeout
+	levelScaleTarget = 1
+	
+	GlitchSound.play()
