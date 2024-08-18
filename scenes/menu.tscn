@@ -76,6 +76,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_et2s8")
-stretch_mode = 4
+stretch_mode = 5
 
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
