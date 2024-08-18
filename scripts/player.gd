@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var friction = 0.07
 @export var coyoteTime = 0.1 # Seconds
 
+@onready var Main = get_node("/root/Main")
 @onready var Bot = $Bot/Sprite2D
 @onready var Wheel = $Wheel/Sprite2D
 @onready var Jetpack = $Jetpack/Sprite2D
@@ -24,6 +25,7 @@ var dashTime : float = 0.0
 var floorCooldown : float = 0.0
 var _speed
 var spawnLocation: Vector2
+var justDied = false
 
 
 func _ready() -> void:
@@ -33,16 +35,20 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if justDied:
+		pause()
+		await get_tree().create_timer(0.1).timeout
+		resume()
+		justDied = false
 	if inputEnabled: 
 		handle_movement(delta)
 	damage()
 
 
 func die():
-	pause()
+	Main.deaths += 1
 	position = spawnLocation
-	await get_tree().create_timer(0.1).timeout
-	resume()
+	justDied = true
 
 
 func pause():
@@ -59,6 +65,7 @@ func damage() -> void:
 		var collision = get_slide_collision(i)
 		if collision.get_collider().is_in_group("danger"):
 			die()
+			break
 
 
 func handle_movement(delta):

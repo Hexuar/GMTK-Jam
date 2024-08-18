@@ -12,10 +12,15 @@ var currentLevelIndex : int
 var levelScaleTarget: float = 1.0
 var levelScale: float = 1.0
 
+var deaths = 0
+
 func _ready() -> void:
+	# Menu
 	Menu.Music = $Music
 	Menu.get_node("Buttons/StartButton").pressed.connect(close_menu)
 	get_tree().paused = true
+	
+	# Start Game
 	load_level(startLevel)
 
 

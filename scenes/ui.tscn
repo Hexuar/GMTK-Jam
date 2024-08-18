@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cldm318cfa0ww"]
+[gd_scene load_steps=9 format=3 uid="uid://cldm318cfa0ww"]
 
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="1_8vr0j"]
 [ext_resource type="Texture2D" uid="uid://c07mr1u8j64ht" path="res://assets/minibot.png" id="2_3l3eu"]
 [ext_resource type="Texture2D" uid="uid://yhv3rx4s1fm7" path="res://assets/speech_bubble_large.png" id="3_odd2l"]
 [ext_resource type="PackedScene" uid="uid://d2uucmnqg8trs" path="res://scenes/menu.tscn" id="4_vmw3f"]
+[ext_resource type="Texture2D" uid="uid://c7b36c63awy0m" path="res://assets/scores.png" id="4_wqhnd"]
+[ext_resource type="Script" path="res://scripts/stats.gd" id="5_lrevm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnir4"]
 shader = ExtResource("1_8vr0j")
@@ -62,5 +64,37 @@ offset_top = 342.0
 offset_right = 567.0
 offset_bottom = 516.0
 bbcode_enabled = true
+
+[node name="Stats" type="TextureRect" parent="."]
+process_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -293.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 100.0
+grow_horizontal = 0
+texture = ExtResource("4_wqhnd")
+stretch_mode = 4
+script = ExtResource("5_lrevm")
+
+[node name="Time" type="RichTextLabel" parent="Stats"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 122.0
+offset_bottom = 46.0
+bbcode_enabled = true
+text = "[color=\"black\"]Time: 1:20:14[/color]"
+
+[node name="Deaths" type="RichTextLabel" parent="Stats"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 6.0
+offset_right = 282.0
+offset_bottom = 46.0
+bbcode_enabled = true
+text = "[color=\"black\"]Deaths: 100[/color]"
 
 [node name="Menu" parent="." instance=ExtResource("4_vmw3f")]
