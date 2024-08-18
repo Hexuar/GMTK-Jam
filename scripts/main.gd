@@ -6,7 +6,6 @@ extends Node2D
 
 @onready var Menu = $UI/Menu
 @onready var GlitchSound = $Glitch
-@onready var Snow = $Snow
 
 var currentLevel : Node2D
 var currentLevelIndex : int
@@ -44,8 +43,9 @@ func load_level(index):
 	currentLevel = scene.instantiate()
 	currentLevelIndex = index
 	
+	# Scale
 	scale_level(1.0 - index * 0.1)
-	
+
 	add_child(currentLevel)
 
 

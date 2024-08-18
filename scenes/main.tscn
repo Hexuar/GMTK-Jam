@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duxs7ht4yi33t"]
+[gd_scene load_steps=7 format=3 uid="uid://duxs7ht4yi33t"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ika60"]
 [ext_resource type="Texture2D" uid="uid://dk4wym2ttoll8" path="res://assets/clouds.png" id="2_hopw3"]
@@ -6,11 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cldm318cfa0ww" path="res://scenes/ui.tscn" id="4_iufoy"]
 [ext_resource type="AudioStream" uid="uid://i7mdt6sab7ef" path="res://assets/glitch.wav" id="6_1vrgv"]
 [ext_resource type="AudioStream" uid="uid://b0im7ivwor7e" path="res://assets/music.wav" id="7_qxiw0"]
-[ext_resource type="Texture2D" uid="uid://dvwbcmigndh36" path="res://assets/snow.png" id="7_vbkcs"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ika60")
-startLevel = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -60,18 +58,3 @@ autoplay = true
 
 [node name="Glitch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1vrgv")
-
-[node name="Snow" type="CPUParticles2D" parent="."]
-position = Vector2(-588, -638)
-amount = 2000
-lifetime = 20.0
-preprocess = 20.0
-local_coords = true
-texture = ExtResource("7_vbkcs")
-emission_shape = 3
-emission_rect_extents = Vector2(3000, 1)
-direction = Vector2(0, 1)
-gravity = Vector2(0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 70.0
-angular_velocity_max = 100.0
