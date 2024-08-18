@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://gb8hoi5ikmr6" path="res://assets/minibot.wav" id="4_3bsm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnkfj"]
-size = Vector2(57, 74)
+size = Vector2(73, 74)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3w7ko"]
 atlas = ExtResource("1_qgkg2")
@@ -79,7 +79,7 @@ script = ExtResource("1_725gj")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -7)
+position = Vector2(-0.5, -6)
 shape = SubResource("RectangleShape2D_cnkfj")
 
 [node name="Minibot" type="AnimatedSprite2D" parent="."]
