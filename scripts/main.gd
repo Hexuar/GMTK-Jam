@@ -4,8 +4,12 @@ extends Node2D
 @export var glitchFrequency : int = 30
 @export var glitchLength : int = 10
 
+@onready var Music = $Music
 @onready var Menu = $UI/Menu
 @onready var GlitchSound = $Glitch
+
+const defaultMusic = preload("res://assets/music.wav")
+const glitchMusic = preload("res://assets/glitch_music.wav")
 
 var currentLevel : Node2D
 var currentLevelIndex : int
@@ -16,7 +20,7 @@ var deaths = 0
 
 func _ready() -> void:
 	# Menu
-	Menu.Music = $Music
+	Menu.Music = Music
 	Menu.get_node("Buttons/StartButton").pressed.connect(close_menu)
 	get_tree().paused = true
 	
@@ -62,11 +66,17 @@ func scale_level(factor):
 func glitch():
 	var factor = randf_range(-0.2 + currentLevelIndex * 0.1, 0.2 + currentLevelIndex * 0.1)
 	var time = glitchLength + currentLevelIndex
+	
+	# Sound
 	GlitchSound.play()
+	Music.stream = glitchMusic
+	Music.play()
 	
 	levelScaleTarget = 1 + factor
-	print(levelScaleTarget, factor)
 	await get_tree().create_timer(time).timeout
 	levelScaleTarget = 1
 	
+	# Sound
+	Music.stream = defaultMusic
+	Music.play()
 	GlitchSound.play()

@@ -14,7 +14,7 @@ extends CharacterBody2D
 @export var coyoteTime = 0.1 # Seconds
 
 @onready var Main = get_node("/root/Main")
-@onready var Bot = $Bot/Sprite2D
+@onready var Bot = $Bot/AnimatedSprite2D
 @onready var Wheel = $Wheel/Sprite2D
 @onready var Jetpack = $Jetpack/Sprite2D
 
@@ -26,6 +26,7 @@ var floorCooldown : float = 0.0
 var _speed
 var spawnLocation: Vector2
 var justDied = false
+var directions = ["left", "front", "right"]
 
 
 func _ready() -> void:
@@ -52,7 +53,7 @@ func die():
 
 
 func pause():
-	Bot.frame = 1
+	Bot.animation = "front"
 	velocity = Vector2()
 	inputEnabled = false
 
@@ -115,7 +116,7 @@ func handle_movement(delta):
 	
 	
 	## Animation
-	Bot.frame = direction+1
+	Bot.animation = directions[direction+1]
 	Wheel.rotation += velocity.x / 1000
 	
 	move_and_slide()
