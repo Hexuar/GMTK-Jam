@@ -32,7 +32,7 @@ void fragment() {
 shader = SubResource("Shader_8h41f")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e63bp"]
-size = Vector2(14, 32)
+size = Vector2(14, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kagjl"]
 atlas = ExtResource("2_8ess0")
@@ -119,11 +119,11 @@ material = SubResource("ShaderMaterial_cqvlc")
 texture = ExtResource("4_toiff")
 
 [node name="Bot" type="CollisionShape2D" parent="."]
-position = Vector2(0, -28)
+position = Vector2(0, -26.5)
 shape = SubResource("RectangleShape2D_e63bp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bot"]
-position = Vector2(0, 2)
+position = Vector2(0, 0.5)
 sprite_frames = SubResource("SpriteFrames_opfk8")
 animation = &"right"
 autoplay = "front"

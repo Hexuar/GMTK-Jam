@@ -437,12 +437,45 @@ shape = SubResource("RectangleShape2D_2mg8x")
 position = Vector2(-475, -255)
 scaleFactor = Vector2(3, 1)
 
+[node name="Platform3" parent="Platforms" instance=ExtResource("5_js8nx")]
+position = Vector2(-369, -416)
+scaleFactor = Vector2(3, 1)
+
 [node name="Platform2" parent="Platforms" instance=ExtResource("5_js8nx")]
 position = Vector2(-563, -320)
-scaleFactor = Vector2(1, 5)
+scaleFactor = Vector2(1, 10)
+scaleCooldown = 3.0
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("5_js8nx")]
+position = Vector2(-297, -458)
+scaleFactor = Vector2(1, 10)
+scaleCooldown = 3.0
+
+[node name="Platform7" parent="Platforms" instance=ExtResource("5_js8nx")]
+position = Vector2(-518, -854)
+scaleFactor = Vector2(1, 10)
+
+[node name="Platform9" parent="Platforms" instance=ExtResource("5_js8nx")]
+position = Vector2(-699, -806)
+scaleFactor = Vector2(2, 2)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("5_js8nx")]
+position = Vector2(-371, -699)
+scaleFactor = Vector2(3, 1)
+scaleCooldown = 3.0
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("5_js8nx")]
+position = Vector2(-608, -747)
+scaleFactor = Vector2(3, 4)
+scaleCooldown = 3.0
+
+[node name="Platform8" parent="Platforms" instance=ExtResource("5_js8nx")]
+position = Vector2(-273, -878)
+scaleFactor = Vector2(3, 1)
+scaleCooldown = 3.0
 
 [node name="Player" parent="." instance=ExtResource("4_w8dlm")]
-position = Vector2(-388, -16)
+position = Vector2(-244, -618)
 hasJetpack = false
 hasWheel = false
 

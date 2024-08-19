@@ -36,6 +36,9 @@ func _ready() -> void:
 	if !hasWheel:
 		remove_child($Wheel)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Restart"):
+		die()
 
 func _physics_process(delta: float) -> void:
 	if justDied:
