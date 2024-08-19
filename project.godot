@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTK-Jam"
+config/name="MountainScalers"
 config/tags=PackedStringArray("2d", "gamejam")
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
