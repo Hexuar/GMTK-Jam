@@ -65,7 +65,7 @@ func scale_level(factor):
 
 
 func glitch():
-	var factor = randf_range(-0.2 - currentLevelIndex * 0.1, 0.2 + currentLevelIndex * 0.1)
+	var factor = randf_range(-0.2, 0.2)
 	var time = glitchLength
 	
 	# Sound

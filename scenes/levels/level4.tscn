@@ -398,7 +398,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_mn613")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mg8x"]
-size = Vector2(3479.18, 273)
+size = Vector2(6496.59, 273)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6k1s1"]
 size = Vector2(20, 54)
@@ -457,10 +457,10 @@ animations = [{
 script = ExtResource("1_4oai8")
 
 [node name="Snow" type="CPUParticles2D" parent="."]
-position = Vector2(108, -1922)
+position = Vector2(252, -2612)
 amount = 5000
-lifetime = 120.0
-preprocess = 120.0
+lifetime = 125.0
+preprocess = 125.0
 local_coords = true
 texture = ExtResource("1_ykjqw")
 emission_shape = 3
@@ -484,7 +484,7 @@ collision_mask = 2
 script = ExtResource("3_jorrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill"]
-position = Vector2(12.25, 72.25)
+position = Vector2(1527.25, 228.25)
 shape = SubResource("RectangleShape2D_2mg8x")
 
 [node name="Boulders" type="Node2D" parent="."]
@@ -551,7 +551,7 @@ scaleFactor = Vector2(2, 20)
 scaleCooldown = 3.0
 
 [node name="Player" parent="." instance=ExtResource("4_w8dlm")]
-position = Vector2(-435, -6)
+position = Vector2(832, -2057)
 hasJetpack = false
 hasWheel = false
 

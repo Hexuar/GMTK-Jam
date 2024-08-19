@@ -8,20 +8,25 @@ signal animation_step
 signal animation_finished
 
 @onready var StartButton = $Buttons/StartButton
+@onready var Buttons = $Buttons
+@onready var Title = $Title
+@onready var Credits = $Credits
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 	
 	
 func open():
-	$Buttons.visible = true
-	$TextureRect.visible = true
+	Buttons.visible = true
+	Title.visible = true
+	Credits.visible = true
 	position.y = -size.y
 	running = true
 
 func transition():
-	$Buttons.visible = false
-	$TextureRect.visible = false
+	Buttons.visible = false
+	Title.visible = false
+	Credits.visible = false
 	position.y = -size.y
 	running = true
 

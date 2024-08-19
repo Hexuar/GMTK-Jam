@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2uucmnqg8trs"]
+[gd_scene load_steps=5 format=3 uid="uid://d2uucmnqg8trs"]
 
 [ext_resource type="Texture2D" uid="uid://cjwdysc0lh0lq" path="res://assets/transition.png" id="1_x62vi"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="2_05g8e"]
 [ext_resource type="Texture2D" uid="uid://dkhx00hg4gxbt" path="res://assets/logo.png" id="3_et2s8"]
+[ext_resource type="Texture2D" uid="uid://c53mrsnrf4tra" path="res://assets/credits.png" id="4_ikbm7"]
 
 [node name="Menu" type="TextureRect"]
 anchors_preset = 15
@@ -61,7 +62,7 @@ grow_vertical = 2
 text = "Exit
 "
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Title" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -76,6 +77,23 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_et2s8")
+stretch_mode = 5
+
+[node name="Credits" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -324.0
+offset_right = -10.0
+offset_bottom = -291.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+texture = ExtResource("4_ikbm7")
 stretch_mode = 5
 
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]

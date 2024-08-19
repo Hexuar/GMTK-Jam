@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://dfx1e4jktvn5n"]
+[gd_scene load_steps=5 format=4 uid="uid://qtidhedhmdl5"]
 
 [ext_resource type="Texture2D" uid="uid://be331ukf30w1s" path="res://assets/tileset.png" id="2_g0p42"]
 [ext_resource type="PackedScene" uid="uid://dmedm8uf3fyo8" path="res://scenes/minibot.tscn" id="4_6pdg5"]
