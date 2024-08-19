@@ -412,7 +412,7 @@ position = Vector2(2353, -1425)
 position = Vector2(1756, -916)
 
 [node name="Player" parent="." instance=ExtResource("5_vi4b0")]
-position = Vector2(2154, -357)
+position = Vector2(-633, -32)
 hasJetpack = false
 
 [node name="Pylon" parent="." instance=ExtResource("7_5spld")]
