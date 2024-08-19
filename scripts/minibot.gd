@@ -30,7 +30,7 @@ func stop_chat():
 
 func _process(delta: float) -> void:
 	position.y += speed * delta
-	if Input.is_action_just_pressed("ui_accept") and SpeechBubble.visible:
+	if Input.is_action_just_pressed("Jump") and SpeechBubble.visible:
 		if textPosition >= text.size():
 			stop_chat()
 			return
@@ -49,6 +49,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		stop_chat()
 		body.canJump = true
 		SpeechBubble.visible = false
