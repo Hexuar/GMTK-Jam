@@ -15,6 +15,7 @@ var currentLevel : Node2D
 var currentLevelIndex : int
 var levelScaleTarget: float = 1.0
 var levelScale: float = 1.0
+var defaultLevelScale : float = 1.0
 
 var deaths = 0
 
@@ -53,13 +54,14 @@ func load_level(index):
 	currentLevelIndex = index
 	
 	# Scale
-	scale_level(1.0 - index * 0.1)
-
+	defaultLevelScale = 1.0 - index * 0.1
+	levelScaleTarget = defaultLevelScale
 	add_child(currentLevel)
 
 
 func scale_level(factor):
 	currentLevel.scale = Vector2(factor, factor)
+	print(currentLevel.scale)
 	currentLevel.get_node("Player").scale = Vector2.ONE/currentLevel.scale
 
 
@@ -74,7 +76,7 @@ func glitch():
 	
 	levelScaleTarget = 1 + factor
 	await get_tree().create_timer(time).timeout
-	levelScaleTarget = 1
+	levelScaleTarget = defaultLevelScale
 	
 	# Sound
 	Music.stream = defaultMusic
