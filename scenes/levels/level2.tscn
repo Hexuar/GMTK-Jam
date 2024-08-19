@@ -299,7 +299,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_mn613")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mg8x"]
-size = Vector2(3479.18, 273)
+size = Vector2(3887.59, 273)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tu7sp")
@@ -333,6 +333,15 @@ script = ExtResource("3_itqvp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill"]
 position = Vector2(-3.7502, 162.5)
+shape = SubResource("RectangleShape2D_2mg8x")
+
+[node name="Kill2" type="Area2D" parent="."]
+position = Vector2(-226.25, 118.75)
+collision_mask = 2
+script = ExtResource("3_itqvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill2"]
+position = Vector2(573.045, -1127.75)
 shape = SubResource("RectangleShape2D_2mg8x")
 
 [node name="Boulders" type="Node2D" parent="."]
@@ -411,4 +420,5 @@ position = Vector2(2501, -689)
 text = Array[String](["Hrm... Looks like you can't fit through here.", "We'll have to remove your [b][color=\"purple\"]Wheel[/color][/b]."])
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
+[connection signal="body_entered" from="Kill2" to="Kill2" method="_on_body_entered"]
 [connection signal="minibot_done" from="Minibot" to="." method="_on_minibot_minibot_done"]

@@ -4,8 +4,14 @@ extends TextureRect
 @onready var TimeText = $Time
 @onready var DeathsText = $Deaths
 
+var timePlayed : float = 0 # Seconds
 
-func _process(_delta: float) -> void:
-	var time = Time.get_time_dict_from_unix_time(int(Time.get_ticks_msec() / 1000.0))
+
+func _process(delta: float) -> void:
+	if !get_tree().paused:
+		timePlayed += delta
+		
+	var time = Time.get_time_dict_from_unix_time(int(timePlayed))
+	
 	TimeText.text = "[color=\"black\"]Time: %s:%s[/color]" % [time.minute,time.second]
 	DeathsText.text = "[color=\"black\"]Deaths: %s[/color]" % Main.deaths 
