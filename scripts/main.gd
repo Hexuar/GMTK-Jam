@@ -79,5 +79,5 @@ func glitch():
 	
 	# Sound
 	Music.stream = defaultMusic
-	Music.play()
-	GlitchSound.play()
+	if(!Music.playing): 
+		Music.play()

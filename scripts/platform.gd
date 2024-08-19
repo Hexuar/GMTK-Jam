@@ -1,10 +1,10 @@
-extends Sprite2D
+extends StaticBody2D
 
-@export var scaleFactor : float = 0.5
+@export var scaleFactor : Vector2 = Vector2(0.5, 0.5)
 @export var scaleCooldown = 5
 var time = scaleCooldown
-var factor : float = 1.0
-var scaleTarget : float = 1.0
+var factor : Vector2 = Vector2.ONE
+var scaleTarget : Vector2 = Vector2.ONE
 
 func _process(delta: float) -> void:
 	time -= delta
@@ -12,8 +12,8 @@ func _process(delta: float) -> void:
 		time = 10000
 		scaleTarget = scaleFactor
 		await get_tree().create_timer(scaleCooldown).timeout
-		scaleTarget = 1.0
+		scaleTarget = Vector2.ONE
 		time = scaleCooldown
 	
 	factor = lerp(factor, scaleTarget, delta * 5)
-	scale = Vector2(factor,factor)
+	scale = factor

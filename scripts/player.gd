@@ -33,6 +33,8 @@ func _ready() -> void:
 	spawnLocation = position
 	if !hasJetpack:
 		remove_child($Jetpack)
+	if !hasWheel:
+		remove_child($Wheel)
 
 
 func _physics_process(delta: float) -> void:

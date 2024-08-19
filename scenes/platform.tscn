@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://85khja0s5wqj"]
+[gd_scene load_steps=5 format=3 uid="uid://85khja0s5wqj"]
 
 [ext_resource type="Texture2D" uid="uid://be331ukf30w1s" path="res://assets/tileset.png" id="1_hsctm"]
 [ext_resource type="Script" path="res://scripts/platform.gd" id="2_acrun"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f6ktl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7o4c"]
+size = Vector2(48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls0tt"]
 atlas = ExtResource("1_hsctm")
 region = Rect2(96, 48, 48, 16)
 
-[node name="Platform" type="Sprite2D"]
-texture = SubResource("AtlasTexture_f6ktl")
+[node name="Platform" type="StaticBody2D"]
 script = ExtResource("2_acrun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m7o4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ls0tt")

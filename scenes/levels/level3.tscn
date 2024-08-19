@@ -317,5 +317,6 @@ shape = SubResource("RectangleShape2D_2mg8x")
 [node name="Player" parent="." instance=ExtResource("4_kukds")]
 position = Vector2(-241.111, 3.05176e-05)
 hasJetpack = false
+hasWheel = false
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]

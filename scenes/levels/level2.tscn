@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://frcoxm3x2n6"]
+[gd_scene load_steps=15 format=4 uid="uid://frcoxm3x2n6"]
 
 [ext_resource type="Texture2D" uid="uid://dvwbcmigndh36" path="res://assets/snow.png" id="1_fv40o"]
+[ext_resource type="Script" path="res://scripts/levels/level2.gd" id="1_tu7sp"]
 [ext_resource type="Texture2D" uid="uid://be331ukf30w1s" path="res://assets/tileset.png" id="2_4lh5e"]
 [ext_resource type="Script" path="res://scripts/kill_area.gd" id="3_itqvp"]
 [ext_resource type="PackedScene" uid="uid://676mmvrvlh1a" path="res://scenes/interactive_boulder.tscn" id="4_tpo2s"]
 [ext_resource type="PackedScene" uid="uid://duotpcsh8nknf" path="res://scenes/boulder.tscn" id="5_t8dd4"]
 [ext_resource type="PackedScene" uid="uid://cmffx3jb2mmiq" path="res://scenes/player.tscn" id="5_vi4b0"]
 [ext_resource type="PackedScene" uid="uid://b2orhnf8foadc" path="res://scenes/pylon.tscn" id="7_5spld"]
+[ext_resource type="PackedScene" uid="uid://dmedm8uf3fyo8" path="res://scenes/minibot.tscn" id="9_tsv07"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6v7c"]
 texture = ExtResource("2_4lh5e")
@@ -300,6 +302,7 @@ sources/0 = SubResource("TileSetAtlasSource_mn613")
 size = Vector2(3479.18, 273)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_tu7sp")
 
 [node name="Snow" type="CPUParticles2D" parent="."]
 position = Vector2(1486, -844)
@@ -355,42 +358,22 @@ constant_force = Vector2(100, 0)
 lifeTime = 10
 
 [node name="Boulder6" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1249, -507)
+position = Vector2(1263, -540)
 constant_force = Vector2(-100, 0)
 lifeTime = 8
 
 [node name="Boulder7" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1282, -541)
+position = Vector2(1346, -603)
 constant_force = Vector2(-100, 0)
 lifeTime = 8
 
 [node name="Boulder8" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1324, -569)
+position = Vector2(1614, -847)
 constant_force = Vector2(200, 0)
 lifeTime = 10
 
 [node name="Boulder9" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1270, -582)
-constant_force = Vector2(-100, 0)
-lifeTime = 8
-
-[node name="Boulder10" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1852, -751)
-constant_force = Vector2(-100, 0)
-lifeTime = 8
-
-[node name="Boulder11" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1958, -941)
-constant_force = Vector2(-200, 0)
-lifeTime = 8
-
-[node name="Boulder12" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1876, -1045)
-constant_force = Vector2(-100, 0)
-lifeTime = 10
-
-[node name="Boulder13" parent="Boulders" instance=ExtResource("4_tpo2s")]
-position = Vector2(1978, -1267)
+position = Vector2(1296, -701)
 constant_force = Vector2(-100, 0)
 lifeTime = 8
 
@@ -411,12 +394,21 @@ position = Vector2(2353, -1425)
 [node name="Boulder15" parent="Boulders" instance=ExtResource("5_t8dd4")]
 position = Vector2(1756, -916)
 
+[node name="Boulder18" parent="Boulders" instance=ExtResource("5_t8dd4")]
+position = Vector2(1918, -1102)
+lifeTime = 3
+
 [node name="Player" parent="." instance=ExtResource("5_vi4b0")]
 position = Vector2(-633, -32)
 hasJetpack = false
 
 [node name="Pylon" parent="." instance=ExtResource("7_5spld")]
-position = Vector2(2521, -656)
+position = Vector2(2700, -656)
 goToLevel = 3
 
+[node name="Minibot" parent="." instance=ExtResource("9_tsv07")]
+position = Vector2(2501, -689)
+text = Array[String](["Hrm... Looks like you can't fit through here.", "We'll have to remove your [b][color=\"purple\"]Wheel[/color][b]."])
+
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
+[connection signal="minibot_done" from="Minibot" to="." method="_on_minibot_minibot_done"]
