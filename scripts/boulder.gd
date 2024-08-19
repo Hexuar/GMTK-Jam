@@ -6,7 +6,7 @@ var time
 
 
 func _ready() -> void:
-	spawnLocation = position
+	spawnLocation = global_position
 	reset()
 
 
