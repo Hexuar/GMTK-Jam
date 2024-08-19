@@ -8,6 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f072p"]
 size = Vector2(12, 24.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2k3cm"]
+radius = 8.0
+
 [sub_resource type="Shader" id="Shader_8h41f"]
 code = "shader_type canvas_item;
 
@@ -27,12 +30,6 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cqvlc"]
 shader = SubResource("Shader_8h41f")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_58tm1"]
-load_path = "res://.godot/imported/hover.png-89c618e5e1fb01a26a06eeed0325cbb8.ctex"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2k3cm"]
-radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e63bp"]
 size = Vector2(14, 35)
@@ -97,6 +94,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pgllx"]
+polygon = PackedVector2Array(3, -25, 6, -7, -6, -7, -3, -25)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 9
@@ -112,11 +112,6 @@ texture = ExtResource("3_f01g8")
 hframes = 3
 vframes = 2
 region_rect = Rect2(0, 0, 32, 32)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_cqvlc")
-position = Vector2(0, -12)
-texture = SubResource("CompressedTexture2D_58tm1")
 
 [node name="Wheel" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -142,3 +137,7 @@ zoom = Vector2(3, 3)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -8)
+occluder = SubResource("OccluderPolygon2D_pgllx")
