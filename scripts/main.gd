@@ -61,7 +61,6 @@ func load_level(index):
 
 func scale_level(factor):
 	currentLevel.scale = Vector2(factor, factor)
-	print(currentLevel.scale)
 	currentLevel.get_node("Player").scale = Vector2.ONE/currentLevel.scale
 
 
