@@ -65,15 +65,15 @@ func scale_level(factor):
 
 
 func glitch():
-	var factor = randf_range(-0.2 + currentLevelIndex * 0.1, 0.2 + currentLevelIndex * 0.1)
-	var time = glitchLength + currentLevelIndex
+	var factor = randf_range(-0.2 - currentLevelIndex * 0.1, 0.2 + currentLevelIndex * 0.1)
+	var time = glitchLength
 	
 	# Sound
 	GlitchSound.play()
 	Music.stream = glitchMusic
 	Music.play()
 	
-	levelScaleTarget = 1 + factor
+	levelScaleTarget = defaultLevelScale + factor
 	await get_tree().create_timer(time).timeout
 	levelScaleTarget = defaultLevelScale
 	
