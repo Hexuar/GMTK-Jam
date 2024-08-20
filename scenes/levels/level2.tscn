@@ -192,7 +192,7 @@ position = Vector2(1918, -1102)
 lifeTime = 3
 
 [node name="Player" parent="." instance=ExtResource("5_vi4b0")]
-position = Vector2(-633, -38)
+position = Vector2(-624, -35)
 hasJetpack = false
 
 [node name="Pylon" parent="." instance=ExtResource("7_5spld")]
