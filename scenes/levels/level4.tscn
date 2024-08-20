@@ -240,7 +240,7 @@ scaleFactor = Vector2(2, 20)
 scaleCooldown = 3.0
 
 [node name="Player" parent="." instance=ExtResource("4_w8dlm")]
-position = Vector2(-143, -2152)
+position = Vector2(-1576, -1)
 hasJetpack = false
 hasWheel = false
 

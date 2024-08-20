@@ -17,6 +17,7 @@ extends CharacterBody2D
 @onready var Bot = $Bot/AnimatedSprite2D
 @onready var Wheel = $Wheel/Sprite2D
 @onready var Jetpack = $Jetpack/Sprite2D
+@onready var DeathSound = $DeathSound
 
 var inputEnabled : bool = true
 var canJump : bool = true
@@ -53,11 +54,13 @@ func _physics_process(delta: float) -> void:
 
 func die():
 	Main.deaths += 1
+	DeathSound.play()
 	position = spawnLocation
 	justDied = true
 
 
 func pause():
+	Jetpack.frame = 1
 	Bot.animation = "front"
 	velocity = Vector2()
 	inputEnabled = false

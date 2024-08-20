@@ -24,7 +24,6 @@ func stop_chat():
 	Player.resume()
 	UIBot.visible = false
 	SpeechBubble.visible = false
-	speed = -60.0
 	Vignette.material.set_shader_parameter("softness",1.5)
 	minibot_done.emit()
 
@@ -33,6 +32,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump") and SpeechBubble.visible:
 		if textPosition >= text.size():
 			stop_chat()
+			speed = -60.0
 			return
 		if textPosition == 0:
 			start_chat()
@@ -49,5 +49,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		stop_chat()
+		textPosition = 0
 		body.canJump = true
 		SpeechBubble.visible = false
