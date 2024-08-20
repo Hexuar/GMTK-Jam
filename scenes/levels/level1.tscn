@@ -143,7 +143,7 @@ text = Array[String](["You're not supposed to be here!", "The company is dissapo
 
 [node name="Shadow" type="DirectionalLight2D" parent="."]
 rotation = -1.0472
-energy = 0.2
+energy = 0.3
 blend_mode = 1
 
 [node name="Sun" type="DirectionalLight2D" parent="."]

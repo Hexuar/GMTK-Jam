@@ -21,6 +21,7 @@ func _on_pylon_body_entered(body: Node2D) -> void:
 		var world = get_node("/root/Main")
 		var scene = load("res://scenes/levels/level5.tscn")
 		world.add_child(scene.instantiate())
+		
 		world.GlitchSound.play()
 		world.Music.stop()
 		world.defaultLevelScale = 0.006

@@ -4,11 +4,12 @@ extends TextureRect
 @onready var TimeText = $Time
 @onready var DeathsText = $Deaths
 
+var timerPaused = false
 var timePlayed : float = 0 # Seconds
 
 
 func _process(delta: float) -> void:
-	if !get_tree().paused:
+	if !get_tree().paused and ! timerPaused:
 		timePlayed += delta
 		
 	var time = Time.get_time_dict_from_unix_time(int(timePlayed))
