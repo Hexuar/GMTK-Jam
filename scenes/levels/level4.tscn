@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://qtidhedhmdl5"]
+[gd_scene load_steps=23 format=4 uid="uid://qtidhedhmdl5"]
 
 [ext_resource type="Script" path="res://scripts/levels/level4.gd" id="1_4oai8"]
 [ext_resource type="Texture2D" uid="uid://dvwbcmigndh36" path="res://assets/snow.png" id="1_ykjqw"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://676mmvrvlh1a" path="res://scenes/interactive_boulder.tscn" id="6_c0vmn"]
 [ext_resource type="PackedScene" uid="uid://duotpcsh8nknf" path="res://scenes/boulder.tscn" id="7_xywha"]
 [ext_resource type="Texture2D" uid="uid://tmay4nagf27s" path="res://assets/pylon.png" id="9_42xxa"]
+[ext_resource type="PackedScene" uid="uid://dmedm8uf3fyo8" path="res://scenes/minibot.tscn" id="11_38p2w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mn613"]
 texture = ExtResource("2_s67k8")
@@ -267,6 +268,10 @@ rotation = -0.523599
 energy = 0.5
 shadow_enabled = true
 shadow_filter_smooth = 10.0
+
+[node name="Minibot" parent="." instance=ExtResource("11_38p2w")]
+position = Vector2(-1493, -49)
+text = Array[String](["You're almost at the top! I really thought you'd be scraps by now...", "Once you activate the last pylon at the top of the mountain, I'll sync all the pylons so we can finally [b][color=\"blue\"]Scale[/color][/b] this mountain!"])
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
 [connection signal="body_entered" from="Pylon" to="." method="_on_pylon_body_entered"]
