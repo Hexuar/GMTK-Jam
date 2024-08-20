@@ -258,6 +258,7 @@ sprite_frames = SubResource("SpriteFrames_ehtk4")
 
 [node name="Shadow" type="DirectionalLight2D" parent="."]
 rotation = -1.0472
+color = Color(1, 1, 0.784314, 1)
 energy = 0.2
 blend_mode = 1
 
