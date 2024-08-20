@@ -11,6 +11,7 @@ signal animation_finished
 @onready var Buttons = $Buttons
 @onready var Title = $Title
 @onready var Credits = $Credits
+@onready var EndScreen = $EndScreen
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
@@ -20,6 +21,8 @@ func open():
 	Buttons.visible = true
 	Title.visible = true
 	Credits.visible = true
+	EndScreen.visible = false
+	StartButton.text = "Resume"
 	position.y = -size.y
 	running = true
 
@@ -27,6 +30,16 @@ func transition():
 	Buttons.visible = false
 	Title.visible = false
 	Credits.visible = false
+	EndScreen.visible = false
+	position.y = -size.y
+	running = true
+
+func end_screen():
+	Buttons.visible = true
+	Title.visible = false
+	Credits.visible = false
+	EndScreen.visible = true
+	StartButton.text = "Play Again"
 	position.y = -size.y
 	running = true
 

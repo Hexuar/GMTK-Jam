@@ -11,8 +11,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 		var world = get_node("/root/Main")
 		
-		world.Menu.transition()
+		world.Menu.end_screen()
 		await world.Menu.animation_step
+		get_tree().paused = true
 		world.load_level(0)
 		world.Music.play()
 		
