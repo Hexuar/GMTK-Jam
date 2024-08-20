@@ -263,7 +263,7 @@ blend_mode = 1
 
 [node name="Sun" type="DirectionalLight2D" parent="."]
 rotation = -0.523599
-energy = 0.43
+energy = 0.5
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 10.0
